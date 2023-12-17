@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>广医图书馆助手</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        text-align: center;
+        font-size: 1.4em;
+      }
+
+      .title {
+        margin: 20px;
+      }
+
+      .select table {
+        margin: 10px auto;
+      }
+
+      .select select {
+        text-align: center;
+        padding: 5px;
+        width: 280px;
+        border-radius: 10px;
+        font-size: 1em;
+      }
+
+      .select button {
+        padding: 5px;
+        font-size: 1em;
+        border-radius: 10px;
+      }
+
+      .select table td {
+        padding: 10px;
+      }
+
+      .result {
+        text-align: center;
+        margin: 20px;
+        font-size: 1em;
+      }
+
+      .result .link{
+        margin: 30px;
+      }
+
+      .result img {
+        margin: auto;
+        padding-bottom: 200px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs2@0.0.2/qrcode.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div>
+        <h2 class="title">广医图书馆签到签退助手</h2>
+        <p class="intro">选择你的座位生成链接</p>
+      </div>
+
+      <div class="select">
+        <table>
+          <tr>
+            <td>
+              <label for="campus">校区</label>
+            </td>
+            <td>
+              <select id="campus">
+                <option value="" selected>-----请选择校区-----</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="region">区域</label>
+            </td>
+            <td>
+              <select id="region">
+                <option value="" selected>-----请选择区域-----</option>
+              </select>
+            </td>
+          </td>
+
+          <tr>
+            <td>
+              <label for="seat" selected>座位</label>
+            </td>
+            <td>
+              <select id="seat">
+                <option value="">-----请选择座位-----</option>
+              </select>
+            </td>
+          </td>
+
+          <tr>
+            <td colspan="2">
+              <button class="generate">生成链接</button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div class="result" style="display: none;">
+        <p class="tip">打开下列链接或微信扫下方二维码：</p>
+        <div class="link"><a href=""></a></div>
+        <div class="qrcode"></div>
+      </div>
+    </div>
+
+    <script>
+      const seatInfo = [
+        {
+          "labId": 100492446,
+          "labName": "番禺图书馆",
+          "regions": [
+            {
+              "roomId": 103181276,
+              "roomName": "二楼自主学习区（番禺）",
+              "initialSeatId": 103181448,
+              "length": 62
+            },
+            {
+              "roomId": 100492495,
+              "roomName": "二楼自修阅览A区（番禺）",
+              "initialSeatId": 100494089,
+              "length": 192
+            },
+            {
+              "roomId": 100492768,
+              "roomName": "二楼自修阅览B区（番禺）",
+              "initialSeatId": 100494281,
+              "length": 280
+            },
+            {
+              "roomId": 100520430,
+              "roomName": "二楼中外文报刊A区（番禺）",
+              "initialSeatId": 100520437,
+              "length": 248
+            },
+            {
+              "roomId": 100520432,
+              "roomName": "二楼中外文报刊B区（番禺）",
+              "initialSeatId": 100520685,
+              "length": 224
+            },
+            {
+              "roomId": 100494034,
+              "roomName": "三楼中文图书I（番禺）",
+              "initialSeatId": 100494561,
+              "length": 86
+            },
+            {
+              "roomId": 100494036,
+              "roomName": "三楼中文图书Ⅱ（番禺）",
+              "initialSeatId": 100494647,
+              "length": 128
+            },
+            {
+              "roomId": 100494038,
+              "roomName": "四楼中文图书Ⅲ（番禺）",
+              "initialSeatId": 100494775,
+              "length": 60
+            },
+            {
+              "roomId": 100494040,
+              "roomName": "四楼中文图书Ⅳ（番禺）",
+              "initialSeatId": 100494835,
+              "length": 64
+            },
+            {
+              "roomId": 100494042,
+              "roomName": "四楼自修阅览区（番禺）",
+              "initialSeatId": 100494899,
+              "length": 140
+            },
+            {
+              "roomId": 100494044,
+              "roomName": "五楼中文图书Ⅴ（番禺）",
+              "initialSeatId": 100495039,
+              "length": 28
+            },
+            {
+              "roomId": 100494046,
+              "roomName": "五楼外文书库（番禺）",
+              "initialSeatId": 100495067,
+              "length": 68
+            },
+            {
+              "roomId": 100494048,
+              "roomName": "五楼中外文过刊（番禺）",
+              "initialSeatId": 100495135,
+              "length": 91
+            }
+          ]
+        },
+
+        {
+          "labId": 100492751,
+          "labName": "越秀校区图书馆",
+          "regions": [
+            {
+              "roomId": 100494050,
+              "roomName": "1楼自修区Ⅰ（越秀）",
+              "initialSeatId": 100495227,
+              "length": 104
+            },
+            {
+              "roomId": 100494052,
+              "roomName": "1楼自修区Ⅱ（越秀）",
+              "initialSeatId": 100495331,
+              "length": 84
+            },
+            {
+              "roomId": 100494054,
+              "roomName": "2楼自修区Ⅲ（越秀）",
+              "initialSeatId": 100495415,
+              "length": 183
+            },
+            {
+              "roomId": 100494056,
+              "roomName": "2楼自修区Ⅳ（越秀）",
+              "initialSeatId": 100495598,
+              "length": 75
+            },
+            {
+              "roomId": 100494058,
+              "roomName": "3楼休闲阅览区（越秀）",
+              "initialSeatId": 100495673,
+              "length": 48
+            },
+            {
+              "roomId": 100494060,
+              "roomName": "3楼中外文报刊（越秀）",
+              "initialSeatId": 100495721,
+              "length": 16
+            },
+            {
+              "roomId": 100494062,
+              "roomName": "4楼中文图书Ⅱ（越秀）",
+              "initialSeatId": 100495749,
+              "length": 18
+            },
+            {
+              "roomId": 100494066,
+              "roomName": "4楼中文图书Ⅰ（越秀）",
+              "initialSeatId": 100495737,
+              "length": 11
+            },
+            {
+              "roomId": 100494068,
+              "roomName": "5楼中文图书Ⅳ（越秀）",
+              "initialSeatId": 100495767,
+              "length": 22
+            }
+          ]
+        }
+      ];
+
+      const campusSelect = document.querySelector("#campus");
+      const regionSelect = document.querySelector("#region");
+      const seatSelect = document.querySelector("#seat");
+
+      seatInfo.forEach(lab=>{
+        campusSelect.innerHTML += `<option value="${lab.labId}">${lab.labName}</option>`;
+      });
+
+      campusSelect.onchange = ()=>{
+        const selectedLibId = campusSelect.options[campusSelect.options.selectedIndex].value;
+        if (selectedLibId == "") {
+          return;
+        }
+
+        regionSelect.innerHTML = '<option value="" selected>-----请选择区域-----</option>';
+
+        for (let i=0; i<seatInfo.length; i++) {
+          const lab = seatInfo[i];
+          if (lab.labId == selectedLibId) {
+            lab.regions.forEach(region=>{
+              regionSelect.innerHTML += `<option value="${region.roomId}">${region.roomName}</option>`;
+            });
+            break;
+          }
+        };
+        seatSelect.innerHTML = '<option value="" selected>-----请选择座位-----</option>';
+      };
+
+      regionSelect.onchange = ()=>{
+        const selectedLibId = campusSelect.options[campusSelect.options.selectedIndex].value;
+        if (selectedLibId == "") {
+          return;
+        }
+
+        seatSelect.innerHTML = '<option value="" selected>-----请选择座位-----</option>';
+
+        for (let i=0; i<seatInfo.length; i++) {
+          const lab = seatInfo[i];
+          if (lab.labId == selectedLibId) {
+            const selectedRoomId = regionSelect.options[regionSelect.options.selectedIndex].value;
+            if (selectedRoomId == "") {
+              return;
+            }
+
+            for (let j=0; j<lab.regions.length; j++) {
+              const region = lab.regions[j];
+              if (region.roomId == selectedRoomId) {
+                for (let k=0; k<region.length; k++) {
+                  seatSelect.innerHTML += `<option value="${region.initialSeatId+k}">${String(k+1).padStart(3,0)}</option>`;
+                }
+                break;
+              }
+            }
+            break;
+          }
+        };
+      };
+
+      let qrcode;
+
+      window.onload = ()=>{
+        let size = 240;
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+          document.querySelector("body").style.fontSize = "30px";
+          document.querySelectorAll(".select select").forEach(e=>e.style.width = "520px");
+          size = 700;
+        }
+        const qrcodeContainer = document.querySelector(".result .qrcode");
+        qrcode = new QRCode(qrcodeContainer, {
+          text: "",
+          width: size,
+          height: size,
+          correctLevel : QRCode.CorrectLevel.M,
+        });
+      };
+
+      document.querySelector(".generate").onclick = ()=>{
+        const selectedLibId = campusSelect.options[campusSelect.options.selectedIndex].value;
+        const selectedRoomId = regionSelect.options[regionSelect.options.selectedIndex].value;
+        const selectedSeatId = seatSelect.options[seatSelect.options.selectedIndex].value;
+        if (selectedLibId == "" || selectedRoomId == "" || selectedSeatId == "") {
+          alert("请选择你的座位");
+          return;
+        }
+
+        const link = `http://update.unifound.net/wxnotice/s.aspx?c=${selectedLibId}_Seat_${selectedSeatId}_1EQ`;
+        const aTag = document.querySelector(".result a");
+
+        aTag.href = link;
+        aTag.innerText = link;
+        document.querySelector(".result").style.display = "";
+
+        qrcode.clear();
+        qrcode.makeCode(link);
+      };
+    </script>
+  </body>
+</html>

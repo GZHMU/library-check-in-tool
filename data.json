@@ -1,0 +1,147 @@
+[
+  {
+    "labId": 100492446,
+    "labName": "番禺图书馆",
+    "regions": [
+      {
+        "roomId": 103181276,
+        "roomName": "二楼自主学习区（番禺）",
+        "initialSeatId": 103181448,
+        "length": 62
+      },
+      {
+        "roomId": 100492495,
+        "roomName": "二楼自修阅览A区（番禺）",
+        "initialSeatId": 100494089,
+        "length": 192
+      },
+      {
+        "roomId": 100492768,
+        "roomName": "二楼自修阅览B区（番禺）",
+        "initialSeatId": 100494281,
+        "length": 280
+      },
+      {
+        "roomId": 100520430,
+        "roomName": "二楼中外文报刊A区（番禺）",
+        "initialSeatId": 100520437,
+        "length": 248
+      },
+      {
+        "roomId": 100520432,
+        "roomName": "二楼中外文报刊B区（番禺）",
+        "initialSeatId": 100520685,
+        "length": 224
+      },
+      {
+        "roomId": 100494034,
+        "roomName": "三楼中文图书I（番禺）",
+        "initialSeatId": 100494561,
+        "length": 86
+      },
+      {
+        "roomId": 100494036,
+        "roomName": "三楼中文图书Ⅱ（番禺）",
+        "initialSeatId": 100494647,
+        "length": 128
+      },
+      {
+        "roomId": 100494038,
+        "roomName": "四楼中文图书Ⅲ（番禺）",
+        "initialSeatId": 100494775,
+        "length": 60
+      },
+      {
+        "roomId": 100494040,
+        "roomName": "四楼中文图书Ⅳ（番禺）",
+        "initialSeatId": 100494835,
+        "length": 64
+      },
+      {
+        "roomId": 100494042,
+        "roomName": "四楼自修阅览区（番禺）",
+        "initialSeatId": 100494899,
+        "length": 140
+      },
+      {
+        "roomId": 100494044,
+        "roomName": "五楼中文图书Ⅴ（番禺）",
+        "initialSeatId": 100495039,
+        "length": 28
+      },
+      {
+        "roomId": 100494046,
+        "roomName": "五楼外文书库（番禺）",
+        "initialSeatId": 100495067,
+        "length": 68
+      },
+      {
+        "roomId": 100494048,
+        "roomName": "五楼中外文过刊（番禺）",
+        "initialSeatId": 100495135,
+        "length": 91
+      }
+    ]
+  },
+
+  {
+    "labId": 100492751,
+    "labName": "越秀校区图书馆",
+    "regions": [
+      {
+        "roomId": 100494050,
+        "roomName": "1楼自修区Ⅰ（越秀）",
+        "initialSeatId": 100495227,
+        "length": 104
+      },
+      {
+        "roomId": 100494052,
+        "roomName": "1楼自修区Ⅱ（越秀）",
+        "initialSeatId": 100495331,
+        "length": 84
+      },
+      {
+        "roomId": 100494054,
+        "roomName": "2楼自修区Ⅲ（越秀）",
+        "initialSeatId": 100495415,
+        "length": 183
+      },
+      {
+        "roomId": 100494056,
+        "roomName": "2楼自修区Ⅳ（越秀）",
+        "initialSeatId": 100495598,
+        "length": 75
+      },
+      {
+        "roomId": 100494058,
+        "roomName": "3楼休闲阅览区（越秀）",
+        "initialSeatId": 100495673,
+        "length": 48
+      },
+      {
+        "roomId": 100494060,
+        "roomName": "3楼中外文报刊（越秀）",
+        "initialSeatId": 100495721,
+        "length": 16
+      },
+      {
+        "roomId": 100494062,
+        "roomName": "4楼中文图书Ⅱ（越秀）",
+        "initialSeatId": 100495749,
+        "length": 18
+      },
+      {
+        "roomId": 100494066,
+        "roomName": "4楼中文图书Ⅰ（越秀）",
+        "initialSeatId": 100495737,
+        "length": 11
+      },
+      {
+        "roomId": 100494068,
+        "roomName": "5楼中文图书Ⅳ（越秀）",
+        "initialSeatId": 100495767,
+        "length": 22
+      }
+    ]
+  }
+]
