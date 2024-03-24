@@ -2,11 +2,19 @@
 
 预约了图书馆座位，但临时有事没空去签到要被扣信用分怎么办？这款广医图书馆签到助手可以解你燃眉之急。只需选择你所预约的校区、区域和座位号，即可一键生成签到/签退码（就是座位上的二维码），扫码登录即可实现签到/签退。
 
-### 项目在线地址：[https://papaya-concha-bee6c3.netlify.app/][online]
+### 项目在线地址：
+
+[http://gmulib.atwebpages.com/][online2]（正常访问）
+
+[https://papaya-concha-bee6c3.netlify.app/][online]（已被墙）
 
 ## 使用方法
 
-- 方法一：在线地址，打开即用：[https://papaya-concha-bee6c3.netlify.app/][online]
+- 方法一：在线地址，打开即用：
+
+  [http://gmulib.atwebpages.com/][online2]
+
+  [https://papaya-concha-bee6c3.netlify.app/][online]
 
 - 方法二：将本项目的 `index.html` 文件部署于服务器
 
@@ -70,3 +78,4 @@
 为方便使用，以上表格信息已整理进本项目中的 `data.json` 文件
 
 [online]: https://papaya-concha-bee6c3.netlify.app/
+[online2]: http://gmulib.atwebpages.com/
