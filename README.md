@@ -4,17 +4,13 @@
 
 ### 项目在线地址：
 
-[http://gmulib.atwebpages.com/][online2]（正常访问）
-
-[https://papaya-concha-bee6c3.netlify.app/][online]（已被墙）
+[https://gmulib.netlify.app][online]
 
 ## 使用方法
 
 - 方法一：在线地址，打开即用：
 
-  [http://gmulib.atwebpages.com/][online2]
-
-  [https://papaya-concha-bee6c3.netlify.app/][online]
+  [https://gmulib.netlify.app][online]
 
 - 方法二：将本项目的 `index.html` 文件部署于服务器
 
@@ -77,5 +73,4 @@
 
 为方便使用，以上表格信息已整理进本项目中的 `data.json` 文件
 
-[online]: https://papaya-concha-bee6c3.netlify.app/
-[online2]: http://gmulib.atwebpages.com/
+[online]: https://gmulib.netlify.app
